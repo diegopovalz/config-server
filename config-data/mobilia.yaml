@@ -1,0 +1,28 @@
+spring:
+  profiles:
+    active: dev
+
+application:
+  client:
+    url: localhost:4200/mobilia
+
+tenants:
+  info:
+    - name: tenant_1
+      datasource:
+        url: jdbc:mysql://localhost:3306/mobilia-prototype?serverTimezone=UTC
+        driver: com.mysql.cj.jdbc.Driver
+        username: ${DB_USER}
+        password: ${DB_PW}
+    - name: tenant_2
+      datasource:
+        url: jdbc:mysql://localhost:3306/mobilia-prototype-2?serverTimezone=UTC
+        driver: com.mysql.cj.jdbc.Driver
+        username: ${DB_USER}
+        password: ${DB_PW}
+  default:
+    tenant: tenant_1
+
+encode:
+  key: a518fe9d-6cbf-486d-a7be-c343a6e0a560
+  algorithm: PBEWithMD5AndDES
